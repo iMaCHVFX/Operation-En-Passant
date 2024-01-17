@@ -1,0 +1,88 @@
+[gd_scene load_steps=4 format=3 uid="uid://ch2tskunxt5vo"]
+
+[ext_resource type="Script" path="res://mainmenu.gd" id="1_wm4ei"]
+[ext_resource type="Texture2D" uid="uid://drhslxe1p0iv" path="res://bg.png" id="2_yqwde"]
+[ext_resource type="Texture2D" uid="uid://bh7eb2d2cygw2" path="res://pogger.png" id="3_aw85g"]
+
+[node name="menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wm4ei")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.664922, 0.670254)
+texture = ExtResource("2_yqwde")
+metadata/_aseprite_wizard_config_ = {
+"i_mode": 1,
+"keep_anim_length": false,
+"layer": "",
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"op_exp": false,
+"player": "",
+"source": "res://assets/bg.aseprite"
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 360.603
+offset_top = 89.1182
+offset_right = 531.603
+offset_bottom = 225.118
+scale = Vector2(2.98634, 2.62665)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Pogger" type="Sprite2D" parent="MarginContainer/VBoxContainer"]
+position = Vector2(81.6841, 5.27379)
+scale = Vector2(0.11, 0.125)
+texture = ExtResource("3_aw85g")
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 430.889
+offset_top = 177.559
+offset_right = 526.889
+offset_bottom = 321.559
+scale = Vector2(3.78102, 3.10482)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer2"]
+layout_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="Start" type="Button" parent="MarginContainer2/VBoxContainer"]
+layout_mode = 2
+text = "Start Game"
+
+[node name="Tutorial" type="Button" parent="MarginContainer2/VBoxContainer"]
+layout_mode = 2
+text = "Tutorial"
+
+[node name="settings" type="Button" parent="MarginContainer2/VBoxContainer"]
+layout_mode = 2
+text = "Settings"
+
+[node name="Exit" type="Button" parent="MarginContainer2/VBoxContainer"]
+layout_mode = 2
+text = "Exit"
+
+[connection signal="pressed" from="MarginContainer2/VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="MarginContainer2/VBoxContainer/Tutorial" to="." method="_on_tutorial_pressed"]
+[connection signal="pressed" from="MarginContainer2/VBoxContainer/settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="MarginContainer2/VBoxContainer/Exit" to="." method="_on_exit_pressed"]

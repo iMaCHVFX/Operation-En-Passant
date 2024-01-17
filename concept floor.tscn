@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://bdptktx7ealfk"]
+
+[ext_resource type="Texture2D" uid="uid://c7elnoikymar1" path="res://CHUNGLE.png" id="1_ouuri"]
+
+[node name="StaticBody2D" type="StaticBody2D"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(0, 64, 512, 64, 512, 16, 0, 16)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_ouuri")

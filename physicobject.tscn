@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://l1f88w7lbeia"]
+
+[ext_resource type="Script" path="res://physicobject.gd" id="1_ako2d"]
+[ext_resource type="Texture2D" uid="uid://ck5qeaogj7pni" path="res://thor_face_thumbnail.png" id="2_a8qx8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w3b8o"]
+radius = 8.0
+
+[node name="physicobject" type="RigidBody2D"]
+script = ExtResource("1_ako2d")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-9.53674e-07, 0)
+scale = Vector2(0.0276338, 0.0251969)
+texture = ExtResource("2_a8qx8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_w3b8o")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(0, 16)

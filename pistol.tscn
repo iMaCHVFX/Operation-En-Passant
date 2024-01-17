@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://dbfslgb5ee1j"]
+
+[ext_resource type="Script" path="res://pistol.gd" id="1_76v03"]
+[ext_resource type="Texture2D" uid="uid://bngujmin8wnwp" path="res://gunge.png" id="1_rbfp4"]
+
+[node name="pistol" type="Node2D"]
+script = ExtResource("1_76v03")
+
+[node name="barrel" type="Marker2D" parent="."]
+position = Vector2(30.0275, -7.13525)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_rbfp4")
+flip_h = true
+metadata/_aseprite_wizard_config_ = {
+"i_mode": 1,
+"keep_anim_length": false,
+"layer": "",
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": true,
+"op_exp": true,
+"player": "",
+"source": "res://assets/gunge.aseprite"
+}

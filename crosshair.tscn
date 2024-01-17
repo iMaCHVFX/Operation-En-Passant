@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://bysxtb6u0bm7q"]
+
+[ext_resource type="Script" path="res://Node2D.gd" id="1_b8jr1"]
+[ext_resource type="Texture2D" uid="uid://c3eqg6wt8rgme" path="res://crosshair.png" id="2_5ovrp"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_b8jr1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_5ovrp")
+metadata/_aseprite_wizard_config_ = {
+"i_mode": 1,
+"keep_anim_length": false,
+"layer": "",
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"op_exp": false,
+"player": "",
+"source": "res://assets/crosshair.aseprite"
+}

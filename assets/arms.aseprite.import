@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://dg7r4wrtmsaa1"
+path="res://.godot/imported/arms.aseprite-60d4ae7d593ea47e40de83fee117a55b.res"
+
+[deps]
+
+source_file="res://assets/arms.aseprite"
+dest_files=["res://.godot/imported/arms.aseprite-60d4ae7d593ea47e40de83fee117a55b.res"]
+
+[params]
+

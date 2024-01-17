@@ -1,0 +1,133 @@
+[gd_scene load_steps=11 format=3 uid="uid://bkdj1oretj61d"]
+
+[ext_resource type="Script" path="res://addons/cognite/node/cognite_node.gd" id="1_pgk6k"]
+[ext_resource type="Script" path="res://PATROL.gd" id="2_24gog"]
+[ext_resource type="Script" path="res://addons/cognite/node/assemble.gd" id="2_m3iu7"]
+[ext_resource type="Script" path="res://addons/cognite/node/source.gd" id="3_3tqcj"]
+[ext_resource type="Script" path="res://HUNT.gd" id="5_md82p"]
+[ext_resource type="Script" path="res://ATTACK.gd" id="6_e8kr4"]
+
+[sub_resource type="Resource" id="Resource_c1m75"]
+script = ExtResource("3_3tqcj")
+triggers = Array[String](["key_motion_pressec", "key_jump_pressed"])
+conditions = Array[String](["on_floor"])
+ranges = Array[String]([])
+states = Array[String](["IDLE", "WALK", "JUMP"])
+
+[sub_resource type="Resource" id="Resource_0xdss"]
+script = ExtResource("2_m3iu7")
+nodes = {
+15688911621175: {
+"position": Vector2(100, 100),
+"right_connections": {
+15788434066003: Vector2i(0, 0),
+16277087258080: Vector2i(0, 0)
+},
+"state": 1,
+"type": 0
+},
+15788434066003: {
+"position": Vector2(280, 100),
+"right_connections": {
+15993334207763: Vector2i(0, 0)
+},
+"trigger": 1,
+"type": 1
+},
+15993334207763: {
+"change_state": 2,
+"position": Vector2(580, 100),
+"right_connections": {},
+"type": 2
+},
+16277087258080: {
+"position": Vector2(280, 160),
+"right_connections": {
+16339783717297: Vector2i(0, 0)
+},
+"trigger": 2,
+"type": 1
+},
+16339783717297: {
+"change_state": 3,
+"position": Vector2(580, 160),
+"right_connections": {},
+"type": 2
+},
+16795184466709: {
+"position": Vector2(100, 200),
+"right_connections": {
+16886284749403: Vector2i(0, 0)
+},
+"state": 2,
+"type": 0
+},
+16886284749403: {
+"position": Vector2(280, 240),
+"right_connections": {
+17016375282268: Vector2i(0, 0)
+},
+"trigger": 2,
+"type": 1
+},
+17016375282268: {
+"change_state": 3,
+"position": Vector2(560, 240),
+"right_connections": {},
+"type": 2
+},
+17175054193926: {
+"position": Vector2(100, 300),
+"right_connections": {
+17231039762001: Vector2i(0, 0)
+},
+"state": 3,
+"type": 0
+},
+17231039762001: {
+"condition": 1,
+"position": Vector2(300, 320),
+"right_connections": {
+17364838059368: Vector2i(0, 0)
+},
+"type": 3
+},
+17364838059368: {
+"change_state": 1,
+"position": Vector2(520, 360),
+"right_connections": {},
+"type": 2
+}
+}
+source = SubResource("Resource_c1m75")
+
+[sub_resource type="Resource" id="Resource_ouolu"]
+script = ExtResource("3_3tqcj")
+triggers = Array[String](["dead", "player_detected"])
+conditions = Array[String](["is_hunt", "attacking"])
+ranges = Array[String](["distance_to_player"])
+states = Array[String](["PATROL", "HUNT", "ATTACK"])
+
+[sub_resource type="Resource" id="Resource_amui3"]
+script = ExtResource("2_m3iu7")
+nodes = {}
+source = SubResource("Resource_ouolu")
+
+[node name="CogniteNode" type="Node"]
+script = ExtResource("1_pgk6k")
+cognite_assemble_root = SubResource("Resource_0xdss")
+
+[node name="CogniteNode" type="Node" parent="."]
+script = ExtResource("1_pgk6k")
+cognite_assemble_root = SubResource("Resource_amui3")
+
+[node name="PATROL" type="Node" parent="CogniteNode"]
+script = ExtResource("2_24gog")
+
+[node name="Timer" type="Timer" parent="CogniteNode/PATROL"]
+
+[node name="HUNT" type="Node" parent="CogniteNode"]
+script = ExtResource("5_md82p")
+
+[node name="ATTACK" type="Node" parent="CogniteNode"]
+script = ExtResource("6_e8kr4")

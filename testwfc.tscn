@@ -1,0 +1,84 @@
+[gd_scene load_steps=8 format=3 uid="uid://ktxcke17n7s"]
+
+[ext_resource type="Script" path="res://addons/wfc/nodes/generator_2d.gd" id="1_mfwl4"]
+[ext_resource type="Texture2D" uid="uid://xcqugxepx50e" path="res://assets/TILESET.png" id="2_ksxgu"]
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_k121f"]
+tile_data = PackedInt32Array(0, 262145, 20, 65536, 262145, 21, 131072, 262145, 22, 196608, 262145, 23, 1, 327681, 20, 65537, 327681, 21, 131073, 327681, 22, 196609, 327681, 23, 2, 393217, 20, 65538, 393217, 21, 131074, 393217, 22, 196610, 393217, 23, 3, 458753, 20, 65539, 458753, 21, 131075, 458753, 22, 196611, 458753, 23)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oq1qj"]
+texture = ExtResource("2_ksxgu")
+4:8/size_in_atlas = Vector2i(4, 4)
+4:8/0 = 0
+4:20/0 = 0
+5:20/0 = 0
+6:20/0 = 0
+7:20/0 = 0
+7:21/0 = 0
+6:21/0 = 0
+5:21/0 = 0
+4:21/0 = 0
+4:22/0 = 0
+5:22/0 = 0
+6:22/0 = 0
+7:22/0 = 0
+7:23/0 = 0
+6:23/0 = 0
+5:23/0 = 0
+4:23/0 = 0
+4:0/size_in_atlas = Vector2i(4, 4)
+4:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_mwgb5"]
+sources/1 = SubResource("TileSetAtlasSource_oq1qj")
+pattern_0 = SubResource("TileMapPattern_k121f")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w6dr6"]
+texture = ExtResource("2_ksxgu")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+2:1/0 = 0
+1:1/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+2:4/0 = 0
+2:5/0 = 0
+1:5/0 = 0
+0:5/0 = 0
+0:4/0 = 0
+3:4/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+6:4/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_hyqs1"]
+tile_size = Vector2i(64, 64)
+sources/0 = SubResource("TileSetAtlasSource_w6dr6")
+
+[node name="WFC2DGenerator" type="Node"]
+script = ExtResource("1_mfwl4")
+target = NodePath("target")
+rect = Rect2i(0, 0, 64, 64)
+positive_sample = NodePath("positive sample")
+start_on_ready = true
+render_intermediate_results = true
+
+[node name="positive sample" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_mwgb5")
+format = 2
+layer_0/tile_data = PackedInt32Array(-1, 262145, 0, -196604, 262145, 20, -131068, 262145, 21, -65532, 262145, 22, 4, 262145, 23, -196603, 327681, 20, -131067, 327681, 21, -65531, 327681, 22, 5, 327681, 23, -196602, 393217, 20, -131066, 393217, 21, -65530, 393217, 22, 6, 393217, 23, -196601, 458753, 20, -131065, 458753, 21, -65529, 458753, 22, 7, 458753, 23)
+
+[node name="target" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_hyqs1")
+format = 2

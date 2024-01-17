@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://ccmhrwx4kndr3"
+path="res://.godot/imported/testspritefromtileset.aseprite-5b56ef21b8fd2a848476a4a8a7a0ab55.res"
+
+[deps]
+
+source_file="res://assets/testspritefromtileset.aseprite"
+dest_files=["res://.godot/imported/testspritefromtileset.aseprite-5b56ef21b8fd2a848476a4a8a7a0ab55.res"]
+
+[params]
+

@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://cinwduth1lec3"]
+
+[ext_resource type="Script" path="res://world.gd" id="1_djmlp"]
+[ext_resource type="PackedScene" uid="uid://cfeq8oxg5k1cf" path="res://player.tscn" id="2_tc4cg"]
+[ext_resource type="PackedScene" uid="uid://b3jk0hsk8cl70" path="res://TheLab_NoGeneration.tscn" id="3_a21ev"]
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_djmlp")
+
+[node name="TestMap" parent="." instance=ExtResource("3_a21ev")]
+position = Vector2(819, -465)
+
+[node name="Ground" type="CanvasGroup" parent="."]
+
+[node name="Player" parent="." instance=ExtResource("2_tc4cg")]
+position = Vector2(1124, -646)

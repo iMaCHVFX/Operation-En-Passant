@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://nc0ulu32wqss"]
+
+[ext_resource type="Texture2D" uid="uid://bi0kc6l14of2o" path="res://testspritefromtileset.png" id="1_4f6gy"]
+
+[node name="Floor" type="StaticBody2D"]
+position = Vector2(608, 280)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(384, 236.033)
+polygon = PackedVector2Array(384, 147.967, -408, 147.967, -408, 243.967, 384, 243.967)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+texture_repeat = 2
+offset_left = -24.0
+offset_top = 352.0
+offset_right = 768.0
+offset_bottom = 416.0
+texture = ExtResource("1_4f6gy")
+stretch_mode = 1
+metadata/_aseprite_wizard_config_ = {
+"i_mode": 1,
+"keep_anim_length": false,
+"layer": "",
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": true,
+"op_exp": true,
+"player": "",
+"source": "res://assets/testspritefromtileset.aseprite"
+}

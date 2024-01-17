@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=3 uid="uid://bbsx781of6nol"]
+
+[ext_resource type="Texture2D" uid="uid://da1nbr3iffdka" path="res://bullet.png" id="1_68net"]
+[ext_resource type="Script" path="res://bullet.gd" id="1_yi7ej"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8wqvd"]
+size = Vector2(13.1816, 9.17703)
+
+[node name="Bullet" type="RigidBody2D"]
+script = ExtResource("1_yi7ej")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-0.356659, 0.152315)
+scale = Vector2(1.315, 1.315)
+texture = ExtResource("1_68net")
+offset = Vector2(-0.644631, 0.349162)
+flip_h = true
+metadata/_aseprite_wizard_config_ = {
+"i_mode": 1,
+"keep_anim_length": false,
+"layer": "",
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": true,
+"op_exp": true,
+"player": "",
+"source": "res://assets/bullet.aseprite"
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.108772, -0.0319819)
+shape = SubResource("RectangleShape2D_8wqvd")
