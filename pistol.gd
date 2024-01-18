@@ -4,20 +4,25 @@ extends Node2D
 var b
 @onready var sprite_2d = $Sprite2D
 @onready var barrel = $barrel
-@export var player: Node2D
-var currentAmmo 
-var currentAmmoByString
+var player: Node2D
+var currentAmmo = rocket
+@export var currentAmmoByString = "rocket"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	currentAmmo = rocket
-	currentAmmoByString = "rocket"
+
 	
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+
+	match currentAmmoByString:
+		"rocket":
+			currentAmmo = rocket
+		"bullet":
+			currentAmmo = bullet
 	pass
 	
 	
@@ -28,10 +33,12 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed('shoot'):
 		
 		var currentAmmo = currentAmmo.instantiate()
-		if currentAmmoByString == "rocket":
-			currentAmmo.speed = 1000 
-		else:
-			currentAmmo.speed = 800.0
+		
+		match currentAmmoByString:
+			"rocket":
+				currentAmmo.speed = 1000.0
+			"bullet":
+				currentAmmo.speed = 800.0
 			
 		
 			

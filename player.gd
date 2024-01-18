@@ -13,17 +13,17 @@ extends CharacterBody2D
 const GLOBAL_FRICTION = 0.14
 const Y_TO_X_ON_SLOPE = 500
 const SPEED_ORIGINAL = 320.0
-var SPEED = 320.0
-const JUMP_VELOCITY = -400.0
+@export var SPEED = 320.0
+@export var JUMP_VELOCITY = -400.0
 const PUSH_FORCE = 80.0
 const PERFECT = 1
 const GOOD = 2
 const LATE = 3
 const BAD = 4
 const FRAME_WINDOW = 4
-const acceleration = 0.5
+@export var acceleration = 0.5
 const air_acceleration = 0
-var friction = 0.14
+@export var friction = 0.14
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var counter: int = 0
@@ -31,11 +31,12 @@ var willFade: bool = false
 var timingWindow: int = 0
 var mousePos=Vector2(0.0,0.0)
 #var b
-var health = 200
+@export var health = 200
 var highestVel : Vector2 
 var prevDirection
 var direction
 var testCounter = 0
+var prevDir = 0
 func _ready():
 	perfect.visible = false
 	bad.visible = false
@@ -181,12 +182,29 @@ func _physics_process(delta):
 		
 	
 	# Get the input direction and handle the movement/deceleration.
+	prevDir = direction
 	direction = Input.get_axis("move_left", "move_right")
+	
 	if direction:
-			
-		velocity.x = lerpf(velocity.x, direction * SPEED, acceleration)
+		if is_on_floor():
+			velocity.x = lerpf(velocity.x, direction * SPEED, acceleration)
+		else:
+				if prevDir == 0:
+					if velocity.x > 0:
+						prevDir = 1
+					elif velocity.x < 0:
+						prevDir = -1	
+				if prevDir != direction:
+					velocity.x *= -1 + acceleration/SPEED * direction
+					
+				else:
+					if velocity.x == 0:
+						velocity.x += acceleration * direction
+					else:
+						velocity.x += acceleration/SPEED * direction
+
 		
-	elif is_on_floor():
+	elif is_on_floor() and direction == 0:
 		
 		velocity.x = lerpf(velocity.x, 0, friction)	
 		

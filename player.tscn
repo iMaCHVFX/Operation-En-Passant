@@ -17,6 +17,8 @@
 size = Vector2(14.5678, 44.0396)
 
 [node name="Player" type="CharacterBody2D"]
+collision_layer = 0
+floor_snap_length = 9.0
 script = ExtResource("1_nqsvh")
 
 [node name="Marker2D" type="Marker2D" parent="."]
@@ -104,11 +106,10 @@ metadata/_aseprite_wizard_config_ = {
 "source": "res://assets/arms.aseprite"
 }
 
-[node name="pistol" parent="Marker2D/RightArm" node_paths=PackedStringArray("player") instance=ExtResource("5_76wqr")]
+[node name="pistol" parent="Marker2D/RightArm" instance=ExtResource("5_76wqr")]
 show_behind_parent = true
 position = Vector2(48.8619, -4.54155)
 scale = Vector2(0.506667, 0.506667)
-player = NodePath("../../..")
 
 [node name="Perfect" type="Sprite2D" parent="Marker2D"]
 position = Vector2(-13.2227, 12.7908)
@@ -156,7 +157,7 @@ script = ExtResource("3_j3673")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-5.02246, -17.1425)
-zoom = Vector2(1.24, 1.24)
+zoom = Vector2(1.75, 1.75)
 process_callback = 0
 position_smoothing_enabled = true
 drag_horizontal_enabled = true
