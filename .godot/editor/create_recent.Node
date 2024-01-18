@@ -1,15 +1,14 @@
-Sprite2D
 CollisionShape2D
+TileMap
+Sprite2D
 CharacterBody2D
 RigidBody2D
 WorldEnvironment
 GPUParticles2D
 Node
-TileMap
 WFC2DGenerator
 Label
 TextureRect
 CollisionPolygon2D
 StaticBody2D
 Camera2D
-RemoteTransform2D

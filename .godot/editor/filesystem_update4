@@ -1,7 +1,7 @@
-res://mainmenu.tscn
-res://rocket.gd
-res://TheLab_NoGeneration.tres
 res://player.tscn
+res://rocket.gd
+res://player.gd
+res://mainmenu.tscn
 res://testinggrounds.tscn
 res://world.tscn
 res://floor.tscn
@@ -9,8 +9,6 @@ res://rocket.tscn
 res://explosion.tscn
 res://pistol.tscn
 res://bullet.tscn
-res://TheLab_NoGeneration.tscn
 res://assets/Enemies/Enemy-by-scene/Rook.tscn
 res://rocketcollide.gd
-res://RigidBody2D.gd
-res://explosion.gd
+res://Camera2D.gd

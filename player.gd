@@ -10,10 +10,10 @@ extends CharacterBody2D
 @onready var left_arm = $Marker2D/LeftArm
 @onready var right_arm = $Marker2D/RightArm
 
-
-
-
-var SPEED = 300.0
+const GLOBAL_FRICTION = 0.14
+const Y_TO_X_ON_SLOPE = 500
+const SPEED_ORIGINAL = 320.0
+var SPEED = 320.0
 const JUMP_VELOCITY = -400.0
 const PUSH_FORCE = 80.0
 const PERFECT = 1
@@ -22,6 +22,7 @@ const LATE = 3
 const BAD = 4
 const FRAME_WINDOW = 4
 const acceleration = 0.5
+const air_acceleration = 0
 var friction = 0.14
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -34,6 +35,7 @@ var health = 200
 var highestVel : Vector2 
 var prevDirection
 var direction
+var testCounter = 0
 func _ready():
 	perfect.visible = false
 	bad.visible = false
@@ -96,32 +98,33 @@ func _physics_process(delta):
 		late.visible = false
 		
 		
-	if SPEED > 300.0:
+	if SPEED > SPEED_ORIGINAL:
 		SPEED -= 0.01
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
 		counter = 0
-	elif is_on_floor() and SPEED >= 301.0 and counter > FRAME_WINDOW:
-		SPEED = 300
+	elif is_on_floor() and SPEED >= SPEED_ORIGINAL + 1 and counter > FRAME_WINDOW:
+		SPEED = SPEED_ORIGINAL
 	else:
 		if counter >= 60:
 			counter = 0
 		else:
 			counter += 1
-	if is_on_floor():
+	if is_on_floor() and get_floor_angle() > 0.5 or get_floor_angle() < 0.4:
 		if friction < 0.14:
 			friction += 0.005
-	else:
+	elif not is_on_floor():
 		friction = 0.0
 	# Handle jump.
 	if Input.is_action_just_pressed("move_jump") and is_on_floor():
+		
 		velocity.y = JUMP_VELOCITY
 		
 		if counter <= FRAME_WINDOW and counter > 0:
 			
 			friction = 0.0
-			
+
 			match counter:
 				PERFECT:
 					perfect.visible = true
@@ -132,7 +135,10 @@ func _physics_process(delta):
 					bad.visible = false
 					late.visible = false
 					
-					SPEED += 50.0
+					if velocity.y >= Y_TO_X_ON_SLOPE:
+						SPEED += (velocity.y / 2) + 50.0
+					else:
+						SPEED += 50.0
 				GOOD:
 					good.visible = true
 					good.modulate.a = 1.0
@@ -141,7 +147,10 @@ func _physics_process(delta):
 					bad.visible = false
 					perfect.visible = false
 					late.visible = false
-					SPEED += 25.0
+					if velocity.y >= Y_TO_X_ON_SLOPE:
+						SPEED += (velocity.y / 2) + 25.0
+					else:
+						SPEED += 25.0
 				LATE:
 					late.visible = true
 					late.modulate.a = 1.0
@@ -150,7 +159,10 @@ func _physics_process(delta):
 					good.visible = false
 					bad.visible = false
 					perfect.visible = false
-					SPEED += 18.0
+					if velocity.y >= Y_TO_X_ON_SLOPE:
+						SPEED += (velocity.y / 2) + 15.0
+					else:
+						SPEED += 15.0 
 				BAD:
 					bad.visible = true
 					bad.modulate.a = 1.0
@@ -159,38 +171,30 @@ func _physics_process(delta):
 					perfect.visible = false
 					late.visible = false
 					good.visible = false
-					SPEED += 5.0
+					if velocity.y >= Y_TO_X_ON_SLOPE:
+						SPEED += (velocity.y / 2) + 5.0
+					else:
+						SPEED += 5.0 
 				
 				
 			
 		
 	
 	# Get the input direction and handle the movement/deceleration.
-	# print(direction, " ", prevDirection," ", "speed: ", velocity.x as int, " ", "counter: ", counter)
 	direction = Input.get_axis("move_left", "move_right")
 	if direction:
-		
-		#slows player down upon sudden change in direction (doesnt work? you never see 1 -1 or -1 1
-		#see else statment for rest
-		
-		#if prevDirection != direction and prevDirection != 0 and direction != 0: 
-		#	velocity.x += 200.0
-		#	prevDirection = direction
 			
 		velocity.x = lerpf(velocity.x, direction * SPEED, acceleration)
 		
-			
-	else:
+	elif is_on_floor():
 		
-		#if prevDirection != direction and prevDirection != 0 and direction != 0:
-		#	velocity.x -= 200.0
-		#	prevDirection = direction
-
-			
-		velocity.x = lerpf(velocity.x, 0, friction)
-	
-	
-	
+		velocity.x = lerpf(velocity.x, 0, friction)	
+		
+	#up slope = ~0.4 and is less than 0.5
+	if get_floor_angle() > 0.4 and get_floor_angle() < 0.5 and velocity.x > 500:
+		friction = 0 
+		
+		
 	move_and_slide()
 	
 	for i in get_slide_collision_count():
@@ -208,6 +212,10 @@ func _physics_process(delta):
 		
 		#debug print
 	
-	#print("X: ", abs(velocity.x), " ", abs(highestVel.x), " Y: ", abs(velocity.y), " ", abs(highestVel.y))
+	#print(counter)
+	#print(is_on_floor(), " vel x: ", int(velocity.x), " vel y: ", int(velocity.y), " friction: ", friction, " angle: ", get_floor_angle())
 	
 	
+	
+	
+

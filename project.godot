@@ -36,7 +36,7 @@ mouse_cursor/custom_image="res://crosshair.png"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg", "res://addons/fastnoiselite-configurator/plugin.cfg", "res://addons/godot-box2d/plugin.cfg", "res://addons/godot_vim/plugin.cfg", "res://addons/multirun/plugin.cfg", "res://addons/previous-tab/plugin.cfg", "res://addons/ridiculous_coding/plugin.cfg", "res://addons/trail_2d/plugin.cfg", "res://addons/wfc/plugin.cfg")
+enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg", "res://addons/fastnoiselite-configurator/plugin.cfg", "res://addons/godot_vim/plugin.cfg", "res://addons/multirun/plugin.cfg", "res://addons/previous-tab/plugin.cfg", "res://addons/ridiculous_coding/plugin.cfg", "res://addons/trail_2d/plugin.cfg", "res://addons/wfc/plugin.cfg")
 
 [input]
 
@@ -65,7 +65,6 @@ shoot={
 [physics]
 
 2d/run_on_separate_thread=true
-2d/physics_engine="Box2D"
 
 [rendering]
 

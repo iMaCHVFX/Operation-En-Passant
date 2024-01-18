@@ -14,10 +14,12 @@ func _process(delta):
 	pass
 	
 func _physics_process(delta):
+	pass
+	#if player.velocity.x >= 800.0:
+	#	offset.x = 300
+	#elif player.velocity.x <= -800.0:
+	#	offset.x = -300
 	
-	if player.velocity.x >= 800.0:
-		offset.x = 300
-		print(offset.x)
-	else:
-		offset.x = 0
+	#else:
+	#	offset.x = 0
 		

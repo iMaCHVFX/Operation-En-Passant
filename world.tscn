@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://world.gd" id="1_djmlp"]
 [ext_resource type="PackedScene" uid="uid://cfeq8oxg5k1cf" path="res://player.tscn" id="2_tc4cg"]
-[ext_resource type="PackedScene" uid="uid://bep35i83me3sc" path="res://testinggrounds.tscn" id="3_eias3"]
+[ext_resource type="PackedScene" uid="uid://bep35i83me3sc" path="res://testinggrounds.tscn" id="3_0hck4"]
 
 [sub_resource type="Environment" id="Environment_76im7"]
 background_mode = 3
@@ -25,8 +25,8 @@ environment = SubResource("Environment_76im7")
 
 [node name="Ground" type="CanvasGroup" parent="."]
 
-[node name="TileMap" parent="." instance=ExtResource("3_eias3")]
-position = Vector2(860, -621)
+[node name="64" parent="." instance=ExtResource("3_0hck4")]
+position = Vector2(591, -512)
 
 [node name="Player" parent="." instance=ExtResource("2_tc4cg")]
-position = Vector2(901, -737)
+position = Vector2(1471, -667)

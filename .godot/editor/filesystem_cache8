@@ -1,13 +1,13 @@
 6dcd580d9bf2a9dbe66cc9f994d3620b
-::res://::1705566491
+::res://::1705582047
 arms.png::CompressedTexture2D::500312582473146932::1705197786::1705474661::1::::<><>::
 ATTACK.gd::GDScript::-1::1705289077::0::1::::<>Node<>::
 bad.png::CompressedTexture2D::3367923367125267593::1705063347::1705474661::1::::<><>::
 bg.png::CompressedTexture2D::246118729477225057::1705200890::1705474661::1::::<><>::
 bullet.gd::GDScript::-1::1705300120::0::1::::<>RigidBody2D<>::
 bullet.png::CompressedTexture2D::7213727915906567768::1705094613::1705474661::1::::<><>::
-bullet.tscn::PackedScene::2495223737222275875::1705566471::0::1::::<><>::uid://da1nbr3iffdka::::res://bullet.png<>res://bullet.gd
-Camera2D.gd::GDScript::-1::1705501948::0::1::::<>Camera2D<>::
+bullet.tscn::PackedScene::2495223737222275875::1705581204::0::1::::<><>::uid://da1nbr3iffdka::::res://bullet.png<>res://bullet.gd
+Camera2D.gd::GDScript::-1::1705580571::0::1::::<>Camera2D<>::
 character frame one.png::CompressedTexture2D::26847706308550784::1705078984::1705474661::1::::<><>::
 CHUNGLE.png::CompressedTexture2D::7027833725232908156::1705326057::1705474661::1::::<><>::
 Cognite_Test.tscn::PackedScene::3095095898708129323::1705290875::0::1::::<><>::res://addons/cognite/node/cognite_node.gd<>res://PATROL.gd<>res://addons/cognite/node/assemble.gd<>res://addons/cognite/node/source.gd<>res://HUNT.gd<>res://ATTACK.gd
@@ -16,9 +16,9 @@ crosshair.png::CompressedTexture2D::6747370350032640044::1705085972::1705474661:
 crosshair.tscn::PackedScene::4109542252851234136::1705088033::0::1::::<><>::res://Node2D.gd<>uid://c3eqg6wt8rgme::::res://crosshair.png
 default_env.tres::Environment::-1::1705036461::0::1::::<><>::
 example.tscn::PackedScene::-1::1705285466::0::1::::<><>::
-explosion.gd::GDScript::-1::1705505704::0::1::::<>GPUParticles2D<>::
-explosion.tscn::PackedScene::5353996891224317152::1705566471::0::1::::<><>::res://explosion.gd
-floor.tscn::PackedScene::918137973461896726::1705566471::0::1::::<><>::uid://bi0kc6l14of2o::::res://testspritefromtileset.png
+explosion.gd::GDScript::-1::1705568256::0::1::::<>GPUParticles2D<>::
+explosion.tscn::PackedScene::5353996891224317152::1705581204::0::1::::<><>::res://explosion.gd
+floor.tscn::PackedScene::918137973461896726::1705581204::0::1::::<><>::uid://bi0kc6l14of2o::::res://testspritefromtileset.png
 Good.png::CompressedTexture2D::8986817493726504885::1705084549::1705474661::1::::<><>::
 groundge.png::CompressedTexture2D::7785956934749105182::1705049933::1705474661::1::::<><>::
 gunge.png::CompressedTexture2D::3312492972786631183::1705094176::1705474661::1::::<><>::
@@ -30,7 +30,7 @@ late.png::CompressedTexture2D::3031669055177354981::1705063347::1705474661::1:::
 left arm.png::CompressedTexture2D::8420425187889245089::1705090666::1705474661::1::::<><>::
 lower body.png::CompressedTexture2D::1938185522079415604::1705089933::1705474661::1::::<><>::
 mainmenu.gd::GDScript::-1::1705198916::0::1::::<>Control<>::
-mainmenu.tscn::PackedScene::5321087796116661880::1705566470::0::1::::<><>::res://mainmenu.gd<>uid://drhslxe1p0iv::::res://bg.png<>uid://bh7eb2d2cygw2::::res://pogger.png
+mainmenu.tscn::PackedScene::5321087796116661880::1705581203::0::1::::<><>::res://mainmenu.gd<>uid://drhslxe1p0iv::::res://bg.png<>uid://bh7eb2d2cygw2::::res://pogger.png
 Node2D.gd::GDScript::-1::1705088135::0::1::::<>Node2D<>::
 optionmenumenu.gd::GDScript::-1::1705193637::0::1::::<>Control<>::
 optionmenumenu.tscn::PackedScene::6085681214388555373::1705472467::0::1::::<><>::res://optionmenumenu.gd
@@ -40,24 +40,25 @@ perfect.png::CompressedTexture2D::5089914012038918141::1705084581::1705474661::1
 Phenrig.webp::CompressedTexture2D::3137489690737704694::1705400155::1705474661::1::::<><>::
 physicobject.gd::GDScript::-1::1705039057::0::1::::<>RigidBody2D<>::
 physicobject.tscn::PackedScene::826115386511533656::1705472467::0::1::::<><>::res://physicobject.gd<>uid://ck5qeaogj7pni::::res://thor_face_thumbnail.png
-pistol.gd::GDScript::-1::1705565872::0::1::::<>Node2D<>::
-pistol.tscn::PackedScene::212967225033643693::1705566471::0::1::::<><>::res://pistol.gd<>uid://bngujmin8wnwp::::res://gunge.png
-player.gd::GDScript::-1::1705387212::0::1::::PlayerEntity<>CharacterBody2D<>::
-player.tscn::PackedScene::5133074270846257505::1705566470::0::1::::<><>::res://player.gd<>uid://2u4vra6c0ij1::::res://lower body.png<>res://Label.gd<>res://Health.gd<>uid://hemcs4f7cvk3::::res://arms.png<>uid://cerue081fiekj::::res://perfect.png<>uid://pa1x7ia1wndo::::res://upper body.png<>uid://bjgte8imd5pw4::::res://late.png<>uid://dbfslgb5ee1j::::res://pistol.tscn<>uid://d1bjtoh0gtwaf::::res://Good.png<>uid://bn8pg85vwpw62::::res://bad.png<>res://Camera2D.gd
+pistol.gd::GDScript::-1::1705571206::0::1::::<>Node2D<>::
+pistol.tscn::PackedScene::212967225033643693::1705581204::0::1::::<><>::res://pistol.gd<>uid://bngujmin8wnwp::::res://gunge.png
+player.gd::GDScript::-1::1705581250::0::1::::PlayerEntity<>CharacterBody2D<>::
+player.tscn::PackedScene::5133074270846257505::1705581250::0::1::::<><>::res://player.gd<>uid://2u4vra6c0ij1::::res://lower body.png<>res://Label.gd<>res://Health.gd<>uid://hemcs4f7cvk3::::res://arms.png<>uid://cerue081fiekj::::res://perfect.png<>uid://pa1x7ia1wndo::::res://upper body.png<>uid://bjgte8imd5pw4::::res://late.png<>uid://dbfslgb5ee1j::::res://pistol.tscn<>uid://d1bjtoh0gtwaf::::res://Good.png<>uid://bn8pg85vwpw62::::res://bad.png<>res://Camera2D.gd
 pogger.png::CompressedTexture2D::2944048755049458591::1705445199::1705474661::1::::<><>::
 prevscene.gd::GDScript::-1::1705193916::0::1::::<>Node<>::
 right arm.png::CompressedTexture2D::2481172310144198542::1705090817::1705474661::1::::<><>::
-RigidBody2D.gd::GDScript::-1::1705566027::0::1::::<>RigidBody2D<>::
-rocket.gd::GDScript::-1::1705564868::0::1::::<>Sprite2D<>::
-rocket.tscn::PackedScene::5876562810635574284::1705566471::0::1::::<><>::res://RigidBody2D.gd<>uid://da1nbr3iffdka::::res://bullet.png<>uid://cijrst3m2nfum::::res://explosion.tscn
+RigidBody2D.gd::GDScript::-1::1705567950::0::1::::<>RigidBody2D<>::
+rocket.gd::GDScript::-1::1705579717::0::1::::<>Sprite2D<>::
+rocket.tscn::PackedScene::5876562810635574284::1705581204::0::1::::<><>::res://RigidBody2D.gd<>uid://da1nbr3iffdka::::res://bullet.png<>uid://cijrst3m2nfum::::res://explosion.tscn<>res://rocketcollide.gd
+rocketcollide.gd::GDScript::-1::1705571865::0::1::::<>CollisionShape2D<>::
 smoother.gd::GDScript::-1::1705285686::0::1::::Smoother<>Node<>::
 summon.tscn::PackedScene::-1::1705285466::0::1::::<><>::
 TEMP GROUND.png::CompressedTexture2D::6697703606816307673::1705059045::1705474661::1::::<><>::
-testinggrounds.tscn::PackedScene::2699895846624500086::1705566471::0::1::::<><>::uid://xcqugxepx50e::::res://assets/TILESET.png
+testinggrounds.tscn::PackedScene::2699895846624500086::1705581204::0::1::::<><>::uid://xcqugxepx50e::::res://assets/TILESET.png
 testspritefromtileset.png::CompressedTexture2D::3000153264601663736::1705324745::1705474661::1::::<><>::
 testwfc.tscn::PackedScene::21838594375477926::1705459928::0::1::::<><>::res://addons/wfc/nodes/generator_2d.gd<>uid://xcqugxepx50e::::res://assets/TILESET.png
-TheLab_NoGeneration.tres::TileSet::5421402345023787071::1705562834::0::1::::<><>::uid://xcqugxepx50e::::res://assets/TILESET.png
-TheLab_NoGeneration.tscn::PackedScene::4370939916088309093::1705566471::0::1::::<><>::uid://cjifx7pp3ygpj::::res://TheLab_NoGeneration.tres
+TheLab_NoGeneration.tres::TileSet::5421402345023787071::1705579717::0::1::::<><>::uid://xcqugxepx50e::::res://assets/TILESET.png
+TheLab_NoGeneration.tscn::PackedScene::4370939916088309093::1705580349::0::1::::<><>::uid://cjifx7pp3ygpj::::res://TheLab_NoGeneration.tres
 thor_face_thumbnail.png::CompressedTexture2D::5537639773361379150::1705059591::1705474661::1::::<><>::
 Throok.gd::GDScript::-1::1705302034::0::1::::Throok<>CharacterBody2D<>::
 Throok.png::CompressedTexture2D::4950012791731945991::1705077687::1705474661::1::::<><>::
@@ -65,8 +66,8 @@ Throok.tscn::PackedScene::6035005151055513834::1705472467::0::1::::<><>::res://T
 upper body.png::CompressedTexture2D::1054454062783490936::1705090611::1705474661::1::::<><>::
 WALK.gd::GDScript::-1::1705288183::0::1::::<>Node<>::
 world.gd::GDScript::-1::1705454605::0::1::::<>Node2D<>::
-world.tscn::PackedScene::5362531238687331720::1705566471::0::1::::<><>::res://world.gd<>uid://cfeq8oxg5k1cf::::res://player.tscn<>uid://bep35i83me3sc::::res://testinggrounds.tscn
-::res://addons/::1705474348
+world.tscn::PackedScene::5362531238687331720::1705581204::0::1::::<><>::res://world.gd<>uid://cfeq8oxg5k1cf::::res://player.tscn<>uid://bep35i83me3sc::::res://testinggrounds.tscn
+::res://addons/::1705576896
 ::res://addons/AsepriteWizard/::1705032311
 plugin.cfg::TextFile::-1::1705032311::0::1::::<><>::
 plugin.gd::GDScript::-1::1705032311::0::1::::<>EditorPlugin<>::
@@ -157,7 +158,7 @@ RopeJoint2D.svg::CompressedTexture2D::543656256181785795::1705032286::1705474661
 THIRDPARTY.txt::TextFile::-1::1705032286::0::1::::<><>::
 WeldJoint2D.svg::CompressedTexture2D::2138354691598857211::1705032286::1705474661::1::::<><>::
 WheelJoint2D.svg::CompressedTexture2D::292100443678184100::1705032286::1705474661::1::::<><>::
-::res://addons/godot-box2d/bin/::1705566488
+::res://addons/godot-box2d/bin/::1705582044
 ::res://addons/godot-box2d/bin/libgodot-box2d.macos.template_debug.framework/::1705032287
 ::res://addons/godot-box2d/bin/libgodot-box2d.macos.template_debug.framework/Resources/::1705032287
 ::res://addons/godot-box2d/bin/libgodot-box2d.macos.template_debug.framework/_CodeSignature/::1705032287
@@ -633,12 +634,12 @@ Throok.aseprite::PackedDataContainer::6283949668998448192::1705077344::170547485
 TILESET.aseprite::PackedDataContainer::6935389081912491485::1705386470::1705474850::1::::<><>::
 TILESET.png::CompressedTexture2D::1619479697818554422::1705447354::1705474661::1::::<><>::
 upper body.aseprite::PackedDataContainer::1885798958634387231::1705090603::1705474850::1::::<><>::
-::res://assets/Enemies/::1705563031
-Rook.aseprite::PackedDataContainer::1341860333916145254::1705557075::1705560484::1::::<><>::
+::res://assets/Enemies/::1705568787
+Rook.aseprite::PackedDataContainer::1341860333916145254::1705568753::1705568787::1::::<><>::
 Rook.png::CompressedTexture2D::3266116193804901787::1705562641::1705562823::1::::<><>::
-::res://assets/Enemies/Enemy-by-scene/::1705566471
+::res://assets/Enemies/Enemy-by-scene/::1705581204
 Rook.gd::GDScript::-1::1705563201::0::1::::<>CharacterBody2D<>::
-Rook.tscn::PackedScene::7327637782793911896::1705566471::0::1::::<><>::res://assets/Enemies/Enemy-by-scene/Rook.gd<>uid://bmsepr0kxn3vj::::res://assets/Enemies/Rook.png
+Rook.tscn::PackedScene::7327637782793911896::1705581204::0::1::::<><>::res://assets/Enemies/Enemy-by-scene/Rook.gd<>uid://bmsepr0kxn3vj::::res://assets/Enemies/Rook.png
 ::res://assets/references/::1705544279
 5a058d929cf05203c4b603fe.png::CompressedTexture2D::7382675929083224746::1705178710::1705474661::1::::<><>::
 1920px-Chess_Pieces_Sprite.svg.png::CompressedTexture2D::7992719226840727214::1705442556::1705474661::1::::<><>::
