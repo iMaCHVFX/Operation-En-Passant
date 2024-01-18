@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dcnteg87syga7"]
+
+[ext_resource type="Script" path="res://assets/Enemies/Enemy-by-scene/Rook.gd" id="1_3f42c"]
+[ext_resource type="Texture2D" uid="uid://bmsepr0kxn3vj" path="res://assets/Enemies/Rook.png" id="1_yn622"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lb3du"]
+size = Vector2(36.6841, 45.8367)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_3f42c")
+
+[node name="Rook" type="Sprite2D" parent="."]
+position = Vector2(0, -13)
+scale = Vector2(0.570313, 0.570313)
+texture = ExtResource("1_yn622")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.0789318, -13.0816)
+shape = SubResource("RectangleShape2D_lb3du")

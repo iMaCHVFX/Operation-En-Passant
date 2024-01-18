@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cfeq8oxg5k1cf"]
+[gd_scene load_steps=14 format=3 uid="uid://cfeq8oxg5k1cf"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_nqsvh"]
 [ext_resource type="Texture2D" uid="uid://2u4vra6c0ij1" path="res://lower body.png" id="2_cu773"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dbfslgb5ee1j" path="res://pistol.tscn" id="5_76wqr"]
 [ext_resource type="Texture2D" uid="uid://d1bjtoh0gtwaf" path="res://Good.png" id="5_y2ie8"]
 [ext_resource type="Texture2D" uid="uid://bn8pg85vwpw62" path="res://bad.png" id="6_kpkes"]
+[ext_resource type="Script" path="res://Camera2D.gd" id="12_swvte"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8notw"]
 size = Vector2(24, 48)
@@ -155,8 +156,8 @@ offset_bottom = -93.882
 script = ExtResource("3_j3673")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(-3.82507, -16.4272)
-zoom = Vector2(1.13, 1.13)
+position = Vector2(-5.02246, -17.1425)
+zoom = Vector2(1.61, 1.61)
 process_callback = 0
 position_smoothing_enabled = true
 drag_horizontal_enabled = true
@@ -167,3 +168,4 @@ drag_right_margin = 0.17
 drag_bottom_margin = 0.15
 editor_draw_limits = true
 editor_draw_drag_margin = true
+script = ExtResource("12_swvte")

@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://teaijwqcolx3"
+path="res://.godot/imported/Rook.aseprite-20bfd0d367b9928115289d2e42205e09.res"
+
+[deps]
+
+source_file="res://assets/Enemies/Rook.aseprite"
+dest_files=["res://.godot/imported/Rook.aseprite-20bfd0d367b9928115289d2e42205e09.res"]
+
+[params]
+

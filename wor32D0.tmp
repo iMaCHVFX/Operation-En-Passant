@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://cinwduth1lec3"]
+
+[ext_resource type="Script" path="res://world.gd" id="1_djmlp"]
+[ext_resource type="PackedScene" uid="uid://nc0ulu32wqss" path="res://floor.tscn" id="2_dfrm5"]
+[ext_resource type="PackedScene" uid="uid://cfeq8oxg5k1cf" path="res://player.tscn" id="2_tc4cg"]
+
+[sub_resource type="Environment" id="Environment_76im7"]
+background_mode = 3
+glow_enabled = true
+glow_levels/1 = 1.0
+glow_levels/2 = 1.0
+glow_levels/4 = 1.0
+glow_levels/6 = 1.0
+glow_levels/7 = 1.0
+glow_bloom = 0.01
+glow_blend_mode = 1
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.1838
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_djmlp")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_76im7")
+
+[node name="Ground" type="CanvasGroup" parent="."]
+
+[node name="Floor" parent="." instance=ExtResource("2_dfrm5")]
+position = Vector2(1604, -1046)
+
+[node name="Player" parent="." instance=ExtResource("2_tc4cg")]
+position = Vector2(901, -737)

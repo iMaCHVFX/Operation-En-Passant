@@ -7,15 +7,15 @@ position = Vector2(608, 280)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(384, 236.033)
-polygon = PackedVector2Array(384, 147.967, -408, 147.967, -408, 243.967, 384, 243.967)
+polygon = PackedVector2Array(384, 147.967, -10072, 147.967, -10072, 243.967, 384, 243.967)
 
 [node name="TextureRect" type="TextureRect" parent="."]
 texture_filter = 1
 texture_repeat = 2
-offset_left = -24.0
+offset_left = -9688.0
 offset_top = 352.0
 offset_right = 768.0
-offset_bottom = 416.0
+offset_bottom = 480.0
 texture = ExtResource("1_4f6gy")
 stretch_mode = 1
 metadata/_aseprite_wizard_config_ = {

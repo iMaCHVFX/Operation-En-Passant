@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://cpyweplp5gkm3"]
+
+[ext_resource type="Script" path="res://RigidBody2D.gd" id="1_0n7lm"]
+[ext_resource type="Texture2D" uid="uid://da1nbr3iffdka" path="res://bullet.png" id="1_f6s28"]
+[ext_resource type="PackedScene" uid="uid://cijrst3m2nfum" path="res://explosion.tscn" id="3_yu07o"]
+[ext_resource type="Script" path="res://rocketcollide.gd" id="4_8y58v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b72fc"]
+size = Vector2(34.1882, 23.8872)
+
+[node name="RigidBody2D" type="RigidBody2D"]
+visible = false
+max_contacts_reported = 5
+contact_monitor = true
+script = ExtResource("1_0n7lm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-0.445454, 0.556812)
+scale = Vector2(3.418, 3.418)
+texture = ExtResource("1_f6s28")
+flip_h = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(2.95891, -1.115)
+shape = SubResource("RectangleShape2D_b72fc")
+script = ExtResource("4_8y58v")
+explosion = ExtResource("3_yu07o")
+
+[connection signal="body_entered" from="." to="CollisionShape2D2" method="_on_rigid_body_2d_body_entered"]

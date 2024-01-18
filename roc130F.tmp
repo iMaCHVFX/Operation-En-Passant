@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://cpyweplp5gkm3"]
+
+[ext_resource type="Script" path="res://RigidBody2D.gd" id="1_0n7lm"]
+[ext_resource type="Texture2D" uid="uid://da1nbr3iffdka" path="res://bullet.png" id="1_f6s28"]
+[ext_resource type="PackedScene" uid="uid://cijrst3m2nfum" path="res://explosion.tscn" id="3_yu07o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b72fc"]
+size = Vector2(17.8784, 12.5053)
+
+[node name="RigidBody2D" type="RigidBody2D"]
+max_contacts_reported = 5
+contact_monitor = true
+script = ExtResource("1_0n7lm")
+explosion = ExtResource("3_yu07o")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-0.445454, 0.556812)
+scale = Vector2(1.77258, 1.77258)
+texture = ExtResource("1_f6s28")
+flip_h = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(1.36253, -0.304846)
+shape = SubResource("RectangleShape2D_b72fc")
