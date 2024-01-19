@@ -37,6 +37,21 @@ var prevDirection
 var direction
 var testCounter = 0
 var prevDir = 0
+
+										#current problems
+							#if solved or fixed replace [ ] with [x]
+#-----------------------------------------------------------------------------------------------#
+#	- [ ] cant gain speed when in the air from a stand still
+#	- [ ] losing momentum when you have high speed then bunny hop w/ direction key held
+#	- [ ] game doesnt detect you're on a hill going down, only up so no speed gain on bunnyhop
+#			-> see switch (match) statement on line ~148
+#
+#
+#
+#
+#
+#----------------------------------------------------------------------------------------------#
+
 func _ready():
 	perfect.visible = false
 	bad.visible = false
@@ -66,7 +81,7 @@ func _process(delta):
 		
 
 func _physics_process(delta):
-	
+#handles the fade out of timing widow pop out	
 	match timingWindow:
 		PERFECT:
 			perfect.modulate.a -= 0.03
@@ -105,13 +120,16 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta
 		counter = 0
+	#makes sure max on ground speed is 320 but only if not in a bhopping state	
 	elif is_on_floor() and SPEED >= SPEED_ORIGINAL + 1 and counter > FRAME_WINDOW:
 		SPEED = SPEED_ORIGINAL
 	else:
+		#effectively couting physics ticks to judge jump timing
 		if counter >= 60:
 			counter = 0
 		else:
 			counter += 1
+	#implements a gradient back to base friction if you're not on a slope or in the air
 	if is_on_floor() and get_floor_angle() > 0.5 or get_floor_angle() < 0.4:
 		if friction < 0.14:
 			friction += 0.005
@@ -122,10 +140,12 @@ func _physics_process(delta):
 		
 		velocity.y = JUMP_VELOCITY
 		
+		#sets friction to 0 while bunny hopping
 		if counter <= FRAME_WINDOW and counter > 0:
 			
 			friction = 0.0
-
+			#if the player jumps within one of these frames speed increase += to
+			#desired speed gain. and if you bunny hop on a slope gain the increment + Y velocity / 2
 			match counter:
 				PERFECT:
 					perfect.visible = true
@@ -137,7 +157,7 @@ func _physics_process(delta):
 					late.visible = false
 					
 					if velocity.y >= Y_TO_X_ON_SLOPE:
-						SPEED += (velocity.y / 2) + 50.0
+						velocity.x += (velocity.y / 2) + 50.0
 					else:
 						SPEED += 50.0
 				GOOD:
@@ -149,7 +169,7 @@ func _physics_process(delta):
 					perfect.visible = false
 					late.visible = false
 					if velocity.y >= Y_TO_X_ON_SLOPE:
-						SPEED += (velocity.y / 2) + 25.0
+						velocity.x += (velocity.y / 2) + 25.0
 					else:
 						SPEED += 25.0
 				LATE:
@@ -161,7 +181,7 @@ func _physics_process(delta):
 					bad.visible = false
 					perfect.visible = false
 					if velocity.y >= Y_TO_X_ON_SLOPE:
-						SPEED += (velocity.y / 2) + 15.0
+						velocity.x += (velocity.y / 2) + 15.0
 					else:
 						SPEED += 15.0 
 				BAD:
@@ -173,7 +193,7 @@ func _physics_process(delta):
 					late.visible = false
 					good.visible = false
 					if velocity.y >= Y_TO_X_ON_SLOPE:
-						SPEED += (velocity.y / 2) + 5.0
+						velocity.x += (velocity.y / 2) + 5.0
 					else:
 						SPEED += 5.0 
 				
@@ -186,6 +206,12 @@ func _physics_process(delta):
 	direction = Input.get_axis("move_left", "move_right")
 	
 	if direction:
+		
+		#possibly scuffed code?
+		#checking if you're not on the floor so that if you change input direction
+		#you maintain your momentum between direction swaps
+		#currently cant gain speed while in the air if direction is 0? i think
+		#trying to fix that
 		if is_on_floor():
 			velocity.x = lerpf(velocity.x, direction * SPEED, acceleration)
 		else:
@@ -209,6 +235,8 @@ func _physics_process(delta):
 		velocity.x = lerpf(velocity.x, 0, friction)	
 		
 	#up slope = ~0.4 and is less than 0.5
+	#checks if you're on slope and over a certain speed and allows you to glide up the slope
+	#think garrys mod, or counter strike source surf
 	if get_floor_angle() > 0.4 and get_floor_angle() < 0.5 and velocity.x > 500:
 		friction = 0 
 		

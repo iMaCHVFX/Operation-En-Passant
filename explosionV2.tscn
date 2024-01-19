@@ -1,0 +1,79 @@
+[gd_scene load_steps=13 format=3 uid="uid://bysa53um02375"]
+
+[ext_resource type="Texture2D" uid="uid://baqbqv60k21w3" path="res://assets/smokeparticle.png" id="1_locjs"]
+[ext_resource type="Script" path="res://explosion.gd" id="1_vsfyd"]
+
+[sub_resource type="Gradient" id="Gradient_cqej6"]
+offsets = PackedFloat32Array(0, 0.125506, 0.54251)
+colors = PackedColorArray(0.996552, 1, 0.558594, 1, 1, 0.812648, 0, 1, 1, 0.09375, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_nes8n"]
+gradient = SubResource("Gradient_cqej6")
+use_hdr = true
+
+[sub_resource type="Curve" id="Curve_jrsmh"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.4769), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_medrc"]
+curve = SubResource("Curve_jrsmh")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xga2k"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 39.0
+initial_velocity_max = 191.32
+gravity = Vector3(0, 300, 0)
+scale_min = 3.62
+scale_max = 9.25
+scale_curve = SubResource("CurveTexture_medrc")
+color_ramp = SubResource("GradientTexture1D_nes8n")
+collision_mode = 1
+collision_friction = 0.0
+collision_bounce = 1.0
+collision_use_scale = true
+
+[sub_resource type="Gradient" id="Gradient_bib8d"]
+colors = PackedColorArray(1, 1, 1, 0.752941, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ynphg"]
+gradient = SubResource("Gradient_bib8d")
+
+[sub_resource type="Curve" id="Curve_h67bi"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_271wu"]
+curve = SubResource("Curve_h67bi")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3f5qi"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 106.21
+initial_velocity_max = 218.79
+gravity = Vector3(0, 0, 0)
+damping_min = 22.517
+damping_max = 22.517
+scale_curve = SubResource("CurveTexture_271wu")
+color_ramp = SubResource("GradientTexture1D_ynphg")
+turbulence_enabled = true
+turbulence_noise_strength = 2.4
+
+[node name="GPUParticles2D" type="GPUParticles2D"]
+modulate = Color(1.34, 1, 1, 1)
+self_modulate = Color(1.737, 1, 1, 1)
+emitting = false
+amount = 50
+process_material = SubResource("ParticleProcessMaterial_xga2k")
+one_shot = true
+explosiveness = 1.0
+script = ExtResource("1_vsfyd")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+texture_filter = 1
+emitting = false
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_3f5qi")
+texture = ExtResource("1_locjs")
+one_shot = true
+explosiveness = 1.0

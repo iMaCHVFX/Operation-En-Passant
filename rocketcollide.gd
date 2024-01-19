@@ -1,7 +1,7 @@
 extends CollisionShape2D
-@export var explosion : PackedScene 
+@export var explosionV2 : PackedScene 
 @onready var player: CharacterBody2D = get_node("/root/World/Player")
-@export var knockback = 300
+@export var knockback = 350 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -23,7 +23,7 @@ func _on_rigid_body_2d_body_entered(body):
 		
 	
 
-	var _particle = explosion.instantiate()
+	var _particle = explosionV2.instantiate()
 	_particle.position = global_position
 	_particle.rotation = global_rotation
 	_particle.emitting = true

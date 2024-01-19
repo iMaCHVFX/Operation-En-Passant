@@ -1,7 +1,6 @@
-res://player.tscn
-res://rocket.gd
-res://player.gd
 res://mainmenu.tscn
+res://rocket.gd
+res://player.tscn
 res://testinggrounds.tscn
 res://world.tscn
 res://floor.tscn
@@ -11,6 +10,5 @@ res://pistol.tscn
 res://bullet.tscn
 res://assets/Enemies/Enemy-by-scene/Rook.tscn
 res://rocketcollide.gd
-res://Camera2D.gd
-res://RigidBody2D.gd
-res://pistol.gd
+res://explosionV2.tscn
+res://player.gd

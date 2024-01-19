@@ -157,7 +157,7 @@ script = ExtResource("3_j3673")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-5.02246, -17.1425)
-zoom = Vector2(1.75, 1.75)
+zoom = Vector2(1.285, 1.285)
 process_callback = 0
 position_smoothing_enabled = true
 drag_horizontal_enabled = true

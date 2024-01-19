@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://RigidBody2D.gd" id="1_0n7lm"]
 [ext_resource type="Texture2D" uid="uid://da1nbr3iffdka" path="res://bullet.png" id="1_f6s28"]
-[ext_resource type="PackedScene" uid="uid://cijrst3m2nfum" path="res://explosion.tscn" id="3_yu07o"]
 [ext_resource type="Script" path="res://rocketcollide.gd" id="4_8y58v"]
+[ext_resource type="PackedScene" uid="uid://bysa53um02375" path="res://explosionV2.tscn" id="4_270a2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b72fc"]
 size = Vector2(24.6987, 17.4149)
@@ -24,6 +24,6 @@ flip_h = true
 position = Vector2(2.52738, -1.16654)
 shape = SubResource("RectangleShape2D_b72fc")
 script = ExtResource("4_8y58v")
-explosion = ExtResource("3_yu07o")
+explosionV2 = ExtResource("4_270a2")
 
 [connection signal="body_entered" from="." to="CollisionShape2D2" method="_on_rigid_body_2d_body_entered"]
