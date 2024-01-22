@@ -32,4 +32,4 @@ func _on_rigid_body_2d_body_entered(body):
 	queue_free()	
 	
 	
-	print(get_parent().position.distance_to(player.position))
+	#print(get_parent().position.distance_to(player.position))

@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://buqatk2yyv717"]
+
+[ext_resource type="Script" path="res://Label.gd" id="1_clp46"]
+[ext_resource type="Script" path="res://hud.gd" id="1_qbbm8"]
+[ext_resource type="Script" path="res://Health.gd" id="2_wlpvq"]
+
+[node name="HUD" type="CanvasLayer"]
+layer = 0
+script = ExtResource("1_qbbm8")
+
+[node name="Speed" type="Label" parent="."]
+offset_left = 499.0
+offset_top = 535.0
+offset_right = 810.0
+offset_bottom = 719.0
+theme_override_font_sizes/font_size = 135
+horizontal_alignment = 1
+script = ExtResource("1_clp46")
+
+[node name="Health" type="Label" parent="."]
+offset_left = 11.0
+offset_top = 6.0
+offset_right = 312.0
+offset_bottom = 184.0
+script = ExtResource("2_wlpvq")

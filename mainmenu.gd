@@ -12,7 +12,7 @@ func _on_tutorial_pressed():
 
 
 func _on_settings_pressed():
-	get_tree().change_scene_to_file("res://optionmenumenu.tscn")
+	get_tree().change_scene_to_file("res://chessboard.tscn")
 	Prevscene.prev_scene = "res://mainmenu.tscn"
 	
 

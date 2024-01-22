@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://nwq5uxicrfo2"]
+
+[ext_resource type="Script" path="res://testboard.gd" id="1_cv3vb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6jutr"]
+size = Vector2(63.9081, 63.6979)
+
+[node name="StaticBody2D" type="StaticBody2D" groups=["droppable"]]
+script = ExtResource("1_cv3vb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-32.3632, -32.1218)
+shape = SubResource("RectangleShape2D_6jutr")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(64, 64)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+grow_horizontal = 2
+grow_vertical = 2

@@ -11,7 +11,7 @@ extends CharacterBody2D
 @onready var right_arm = $Marker2D/RightArm
 
 const GLOBAL_FRICTION = 0.14
-const Y_TO_X_ON_SLOPE = 500
+const Y_TO_X_ON_SLOPE = 200
 const SPEED_ORIGINAL = 320.0
 @export var SPEED = 320.0
 @export var JUMP_VELOCITY = -400.0
@@ -37,6 +37,7 @@ var prevDirection
 var direction
 var testCounter = 0
 var prevDir = 0
+var storedPos = null
 
 										#current problems
 							#if solved or fixed replace [ ] with [x]
@@ -81,6 +82,12 @@ func _process(delta):
 		
 
 func _physics_process(delta):
+	
+	if Input.is_action_just_pressed("getpos") and is_on_floor():
+		storedPos = position
+	if Input.is_action_just_pressed("setpos"):
+		if storedPos != null:
+			position = storedPos
 #handles the fade out of timing widow pop out	
 	match timingWindow:
 		PERFECT:
@@ -138,7 +145,7 @@ func _physics_process(delta):
 	# Handle jump.
 	if Input.is_action_just_pressed("move_jump") and is_on_floor():
 		
-		velocity.y = JUMP_VELOCITY
+		velocity.y += JUMP_VELOCITY
 		
 		#sets friction to 0 while bunny hopping
 		if counter <= FRAME_WINDOW and counter > 0:
@@ -237,9 +244,13 @@ func _physics_process(delta):
 	#up slope = ~0.4 and is less than 0.5
 	#checks if you're on slope and over a certain speed and allows you to glide up the slope
 	#think garrys mod, or counter strike source surf
-	if get_floor_angle() > 0.4 and get_floor_angle() < 0.5 and velocity.x > 500:
+	if get_floor_angle() > 0.4 and get_floor_angle() < 0.5 and velocity.x > 500 or velocity.x < -500:
 		friction = 0 
-		
+		floor_snap_length = 0
+	else:
+		floor_snap_length = 9
+	
+	
 		
 	move_and_slide()
 	
@@ -259,7 +270,7 @@ func _physics_process(delta):
 		#debug print
 	
 	#print(counter)
-	#print(is_on_floor(), " vel x: ", int(velocity.x), " vel y: ", int(velocity.y), " friction: ", friction, " angle: ", get_floor_angle())
+	#print("on floor: ", is_on_floor() as int, " vel x: ", velocity.x as int, " vel y: ", velocity.y as int, " speed: ", SPEED as int, " friction: ", friction)
 	
 	
 	

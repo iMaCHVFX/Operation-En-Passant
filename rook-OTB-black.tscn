@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://gckumc4y2e6b"]
+
+[ext_resource type="Texture2D" uid="uid://5skes8wmw0e4" path="res://assets/Rook-OTB-b.png" id="1_k54c0"]
+[ext_resource type="Script" path="res://rook.gd" id="1_uy520"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t1374"]
+size = Vector2(50.113, 57.0175)
+
+[node name="Pawn White" type="CharacterBody2D"]
+script = ExtResource("1_uy520")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_k54c0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+texture_filter = 1
+position = Vector2(-0.0362434, -0.442707)
+shape = SubResource("RectangleShape2D_t1374")

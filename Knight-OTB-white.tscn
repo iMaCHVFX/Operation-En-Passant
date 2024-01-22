@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://jeuxru55fpga"]
+
+[ext_resource type="Script" path="res://Knight.gd" id="1_8ktu0"]
+[ext_resource type="Texture2D" uid="uid://bq8g7c16s6ric" path="res://assets/Knight-OTB-w.png" id="1_cfaee"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t1374"]
+size = Vector2(54.0923, 57.0175)
+
+[node name="Pawn White" type="CharacterBody2D"]
+script = ExtResource("1_8ktu0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_cfaee")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+texture_filter = 1
+position = Vector2(-2.02588, -0.442707)
+shape = SubResource("RectangleShape2D_t1374")

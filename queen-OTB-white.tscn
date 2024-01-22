@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://c1xjuu6bdsd2"]
+
+[ext_resource type="Script" path="res://queen.gd" id="1_ib0cw"]
+[ext_resource type="Texture2D" uid="uid://d3su2tsaxpmhn" path="res://assets/Queen-OTB-w.png" id="1_rxe2c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t1374"]
+size = Vector2(59.745, 60.1626)
+
+[node name="Pawn White" type="CharacterBody2D"]
+script = ExtResource("1_ib0cw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_rxe2c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+texture_filter = 1
+position = Vector2(0.0586734, -0.0029636)
+shape = SubResource("RectangleShape2D_t1374")

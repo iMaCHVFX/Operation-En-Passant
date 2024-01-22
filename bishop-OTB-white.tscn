@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cu1yra0ckq07o"]
+
+[ext_resource type="Script" path="res://bishop.gd" id="1_mas1f"]
+[ext_resource type="Texture2D" uid="uid://cv5yi34s8xxvy" path="res://assets/Bishop-OTB-w.png" id="1_y5prj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t1374"]
+size = Vector2(50.2016, 59.1307)
+
+[node name="Pawn White" type="CharacterBody2D"]
+script = ExtResource("1_mas1f")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_y5prj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+texture_filter = 1
+position = Vector2(0.172851, -0.518889)
+shape = SubResource("RectangleShape2D_t1374")

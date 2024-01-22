@@ -1,0 +1,85 @@
+[gd_scene load_steps=10 format=3 uid="uid://drmsofxljri5g"]
+
+[ext_resource type="PackedScene" uid="uid://cdxbi5084hk8v" path="res://chessboard-tmap.tscn" id="1_lgg4h"]
+[ext_resource type="PackedScene" uid="uid://jeuxru55fpga" path="res://Knight-OTB-white.tscn" id="2_2eebs"]
+[ext_resource type="PackedScene" uid="uid://bnyv1p00eqvc2" path="res://pawn-OTB-white.tscn" id="3_i7key"]
+[ext_resource type="PackedScene" uid="uid://c15o531ob5b2j" path="res://rook-OTB-white.tscn" id="4_u26hg"]
+[ext_resource type="PackedScene" uid="uid://c1xjuu6bdsd2" path="res://queen-OTB-white.tscn" id="5_p7u8u"]
+[ext_resource type="PackedScene" uid="uid://fi3fx43qc23h" path="res://king-OTB-white.tscn" id="6_2l7ft"]
+[ext_resource type="PackedScene" uid="uid://cu1yra0ckq07o" path="res://bishop-OTB-white.tscn" id="7_pxnba"]
+[ext_resource type="PackedScene" uid="uid://nwq5uxicrfo2" path="res://testboard.tscn" id="8_xlyi1"]
+[ext_resource type="PackedScene" uid="uid://b7n41sensnke4" path="res://testpiece.tscn" id="9_kyiub"]
+
+[node name="Chessboard" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -31.0
+offset_top = -21.0
+offset_right = 1296.0
+offset_bottom = 739.0
+color = Color(0, 0, 0, 1)
+
+[node name="white pieces" type="Node" parent="."]
+
+[node name="Knight White R" parent="white pieces" instance=ExtResource("2_2eebs")]
+position = Vector2(800.102, 544)
+
+[node name="Knight White L" parent="white pieces" instance=ExtResource("2_2eebs")]
+position = Vector2(478.567, 544)
+
+[node name="Pawn White1" parent="white pieces" instance=ExtResource("3_i7key")]
+position = Vector2(413.093, 480.395)
+
+[node name="Pawn White2" parent="white pieces" instance=ExtResource("3_i7key")]
+position = Vector2(478.604, 480.395)
+
+[node name="Pawn White3" parent="white pieces" instance=ExtResource("3_i7key")]
+position = Vector2(542.634, 480.395)
+
+[node name="Pawn White4" parent="white pieces" instance=ExtResource("3_i7key")]
+position = Vector2(606.14, 479.265)
+
+[node name="Pawn White5" parent="white pieces" instance=ExtResource("3_i7key")]
+position = Vector2(670.378, 480.395)
+
+[node name="Pawn White6" parent="white pieces" instance=ExtResource("3_i7key")]
+position = Vector2(735.086, 479.642)
+
+[node name="Pawn White7" parent="white pieces" instance=ExtResource("3_i7key")]
+position = Vector2(800.102, 480.018)
+
+[node name="Pawn White8" parent="white pieces" instance=ExtResource("3_i7key")]
+position = Vector2(864, 480.395)
+
+[node name="Rook white L" parent="white pieces" instance=ExtResource("4_u26hg")]
+position = Vector2(413.057, 544)
+
+[node name="Rook white R" parent="white pieces" instance=ExtResource("4_u26hg")]
+position = Vector2(864, 544)
+
+[node name="Queen white" parent="white pieces" instance=ExtResource("5_p7u8u")]
+position = Vector2(606.081, 544)
+
+[node name="KING White" parent="white pieces" instance=ExtResource("6_2l7ft")]
+position = Vector2(670.342, 544)
+
+[node name="bishop white L" parent="white pieces" instance=ExtResource("7_pxnba")]
+position = Vector2(542.598, 543.967)
+
+[node name="bishop white R" parent="white pieces" instance=ExtResource("7_pxnba")]
+position = Vector2(734.05, 543.557)
+
+[node name="board" parent="." instance=ExtResource("1_lgg4h")]
+position = Vector2(640, 384)
+
+[node name="StaticBody2D" parent="." instance=ExtResource("8_xlyi1")]
+position = Vector2(277.186, 284.114)
+
+[node name="StaticBody2D2" parent="." instance=ExtResource("8_xlyi1")]
+position = Vector2(257.005, 384.181)
+
+[node name="StaticBody2D3" parent="." instance=ExtResource("8_xlyi1")]
+position = Vector2(307.459, 184.048)
+
+[node name="Obj" parent="." instance=ExtResource("9_kyiub")]
+position = Vector2(560.568, 206.752)

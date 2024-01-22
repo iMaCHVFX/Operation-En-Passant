@@ -1,8 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://cinwduth1lec3"]
+[gd_scene load_steps=9 format=3 uid="uid://cinwduth1lec3"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_djmlp"]
 [ext_resource type="PackedScene" uid="uid://cfeq8oxg5k1cf" path="res://player.tscn" id="2_tc4cg"]
 [ext_resource type="PackedScene" uid="uid://bep35i83me3sc" path="res://testinggrounds.tscn" id="3_0hck4"]
+[ext_resource type="Shader" path="res://itsspreading.gdshader" id="4_fh2wf"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dpa7q"]
+shader = ExtResource("4_fh2wf")
 
 [sub_resource type="Environment" id="Environment_oe3u8"]
 background_mode = 3
@@ -38,6 +42,7 @@ offset_bottom = 5296.0
 color = Color(0.2, 0.2, 0.2, 1)
 
 [node name="64" parent="." instance=ExtResource("3_0hck4")]
+material = SubResource("ShaderMaterial_dpa7q")
 position = Vector2(591, -512)
 
 [node name="Player" parent="." instance=ExtResource("2_tc4cg")]

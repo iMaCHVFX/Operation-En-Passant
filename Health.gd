@@ -1,8 +1,9 @@
 extends Label
 
-@onready var player = $"../../Player"
+@onready var player: CharacterBody2D = get_node("/root/World/Player")
 
 
-func _process(delta):
+func _process(delta):	
+	
 	self.text = str(get_parent().health)
-	pass
+

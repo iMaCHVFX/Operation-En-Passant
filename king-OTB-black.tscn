@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cv10ikiuww5qf"]
+
+[ext_resource type="Texture2D" uid="uid://rlvw1f6nqvbt" path="res://assets/King-OTB-b.png" id="1_6axlm"]
+[ext_resource type="Script" path="res://king.gd" id="1_pftrg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t1374"]
+size = Vector2(58.7171, 61.9874)
+
+[node name="Pawn White" type="CharacterBody2D"]
+script = ExtResource("1_pftrg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_6axlm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+texture_filter = 1
+position = Vector2(-0.337627, -0.0330186)
+shape = SubResource("RectangleShape2D_t1374")
