@@ -2,10 +2,9 @@ res://mainmenu.tscn
 res://rocket.gd
 res://itsspreading.gdshader
 res://playerdamaged.gdshader
+res://testinggrounds.gd
 res://world.tscn
 res://player.tscn
 res://pistol.tscn
 res://testinggrounds.tscn
 res://testinggrounds-CHESS.tscn
-res://testinggrounds.gd
-res://world.gd

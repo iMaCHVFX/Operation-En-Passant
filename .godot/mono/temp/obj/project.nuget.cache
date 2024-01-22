@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "u6O1/VOC0HleRxOIoVJ+chQ9heEcxJtqrJMpp5fguQ6stBWTWIMEfDNdi+b79nOEPImGhvHMDnEpvwKq/mHPdA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\imach\\Desktop\\Pirate Game Jam\\Operation En Passant\\Operation-En-Passant\\The test one bitch.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\imach\\.nuget\\packages\\godot.sourcegenerators\\4.2.1\\godot.sourcegenerators.4.2.1.nupkg.sha512",
+    "C:\\Users\\imach\\.nuget\\packages\\godotsharp\\4.2.1\\godotsharp.4.2.1.nupkg.sha512",
+    "C:\\Users\\imach\\.nuget\\packages\\godotsharpeditor\\4.2.1\\godotsharpeditor.4.2.1.nupkg.sha512",
+    "C:\\Users\\imach\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.26\\microsoft.netcore.app.ref.6.0.26.nupkg.sha512",
+    "C:\\Users\\imach\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.26\\microsoft.windowsdesktop.app.ref.6.0.26.nupkg.sha512",
+    "C:\\Users\\imach\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.26\\microsoft.aspnetcore.app.ref.6.0.26.nupkg.sha512"
+  ],
+  "logs": []
+}

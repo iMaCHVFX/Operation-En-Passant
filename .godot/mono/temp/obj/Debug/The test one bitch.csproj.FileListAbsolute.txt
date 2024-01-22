@@ -1,0 +1,6 @@
+C:\Users\imach\Desktop\Pirate Game Jam\Operation En Passant\Operation-En-Passant\.godot\mono\temp\obj\Debug\The test one bitch.csproj.AssemblyReference.cache
+C:\Users\imach\Desktop\Pirate Game Jam\Operation En Passant\Operation-En-Passant\.godot\mono\temp\obj\Debug\The test one bitch.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\imach\Desktop\Pirate Game Jam\Operation En Passant\Operation-En-Passant\.godot\mono\temp\obj\Debug\The test one bitch.AssemblyInfoInputs.cache
+C:\Users\imach\Desktop\Pirate Game Jam\Operation En Passant\Operation-En-Passant\.godot\mono\temp\obj\Debug\The test one bitch.AssemblyInfo.cs
+C:\Users\imach\Desktop\Pirate Game Jam\Operation En Passant\Operation-En-Passant\.godot\mono\temp\obj\Debug\The test one bitch.csproj.CoreCompileInputs.cache
+C:\Users\imach\Desktop\Pirate Game Jam\Operation En Passant\Operation-En-Passant\.godot\mono\temp\obj\Debug\The test one bitch.sourcelink.json

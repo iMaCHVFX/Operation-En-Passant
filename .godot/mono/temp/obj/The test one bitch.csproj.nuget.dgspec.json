@@ -1,0 +1,89 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\imach\\Desktop\\Pirate Game Jam\\Operation En Passant\\Operation-En-Passant\\The test one bitch.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\imach\\Desktop\\Pirate Game Jam\\Operation En Passant\\Operation-En-Passant\\The test one bitch.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\imach\\Desktop\\Pirate Game Jam\\Operation En Passant\\Operation-En-Passant\\The test one bitch.csproj",
+        "projectName": "The test one bitch",
+        "projectPath": "C:\\Users\\imach\\Desktop\\Pirate Game Jam\\Operation En Passant\\Operation-En-Passant\\The test one bitch.csproj",
+        "packagesPath": "C:\\Users\\imach\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\imach\\Desktop\\Pirate Game Jam\\Operation En Passant\\Operation-En-Passant\\.godot\\mono\\temp\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\imach\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Godot.SourceGenerators": {
+              "target": "Package",
+              "version": "[4.2.1, )"
+            },
+            "GodotSharp": {
+              "target": "Package",
+              "version": "[4.2.1, )"
+            },
+            "GodotSharpEditor": {
+              "target": "Package",
+              "version": "[4.2.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.26, 6.0.26]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.26, 6.0.26]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[6.0.26, 6.0.26]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

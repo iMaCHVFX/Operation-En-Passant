@@ -35,6 +35,10 @@ window/size/window_height_override=720
 window/stretch/mode="canvas_items"
 mouse_cursor/custom_image="res://assets/crosshair2.png"
 
+[dotnet]
+
+project/assembly_name="The test one bitch"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg", "res://addons/fastnoiselite-configurator/plugin.cfg", "res://addons/godot_vim/plugin.cfg", "res://addons/multirun/plugin.cfg", "res://addons/previous-tab/plugin.cfg", "res://addons/ridiculous_coding/plugin.cfg", "res://addons/trail_2d/plugin.cfg", "res://addons/wfc/plugin.cfg")
