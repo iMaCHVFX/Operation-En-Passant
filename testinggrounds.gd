@@ -1,103 +1,113 @@
-class_name fuckyoufuckyoufuckyoufuckyou
 extends TileMap
 
-var cellPos : Vector2
+var cellPos : Vector2 = Vector2(0.0,0.0)
 var sourceStorage = 0
-var atlasCoord : Vector2i
-var prevSource
+var atlasCoord : Vector2i = Vector2i(0,0)
 var corruptCells = []
-var storageArr = []
-var firstHalf : bool = true
+var updateRate : float = 0.5
+var cellPlaced: bool
+var maxtime = 2.0
+var collide : bool = false
+var cleaserPos : Vector2
+var sourceIn = 1
+var hasClicked : bool = false
 
 
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
+	var timer = Timer.new()
+	timer.wait_time = maxtime
+	timer.autostart = true
+	add_child(timer)
+	
+	timer.timeout.connect(on_timeout)
+	
 
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	cellPos = local_to_map(to_local(get_global_mouse_position())) 
+	if collide:
+		startFill(cellPos, 0, atlasCoord)
+
+
+
+func _input(event):
+	if Input.is_action_just_pressed("rightclick"):
+		hasClicked = true
+		if hasClicked:
+			startFill(cellPos, sourceStorage, atlasCoord)
+			
+			set_cell(0, cellPos, 1, atlasCoord)
+
+
+func startFill(worldPos, setToCell, replacementTile):
+	if collide:
+		cellPos = local_to_map(to_local(cleaserPos))
+	elif hasClicked:
+		cellPos = local_to_map(to_local(get_global_mouse_position()))
+	hasClicked = false
 	
 	sourceStorage = get_cell_source_id(0, cellPos)
 	atlasCoord = get_cell_atlas_coords(0, cellPos)
 	
-	
+	set_cell(0, cellPos, setToCell, get_cell_atlas_coords(0, cellPos))
 
-	
-	if firstHalf:
-		for i in range(corruptCells.size()/2):
-			var index = i if firstHalf else i + corruptCells.size()/2
-			if get_cell_tile_data(0, corruptCells[index]).get_custom_data("startCorrupting") == true and get_cell_tile_data(0, corruptCells[index]).get_custom_data("SpreadToPerc") < 1:
-				get_cell_tile_data(0, corruptCells[index]).set_custom_data("SpreadToPerc", get_cell_tile_data(0, corruptCells[index]).get_custom_data("SpreadToPerc") + 0.001)
-			elif get_cell_tile_data(0, corruptCells[index]).get_custom_data("startCorrupting") == true and get_cell_tile_data(0, corruptCells[index]).get_custom_data("SpreadToPerc") >= 1:
-					if get_cell_tile_data(0, get_neighbor_cell(corruptCells[index], TileSet.CELL_NEIGHBOR_RIGHT_SIDE)) != null:
-						get_cell_tile_data(0, get_neighbor_cell(corruptCells[index], TileSet.CELL_NEIGHBOR_RIGHT_SIDE)).set_custom_data("startCorrupting", true)
-						if corruptCells.find(get_neighbor_cell(corruptCells[index], TileSet.CELL_NEIGHBOR_RIGHT_SIDE)) == -1:
-							corruptCells.append(get_neighbor_cell(corruptCells[index], TileSet.CELL_NEIGHBOR_RIGHT_SIDE))
-						
-					if get_cell_tile_data(0, get_neighbor_cell(corruptCells[index], TileSet.CELL_NEIGHBOR_LEFT_SIDE)) != null:
-						get_cell_tile_data(0, get_neighbor_cell(corruptCells[index], TileSet.CELL_NEIGHBOR_LEFT_SIDE)).set_custom_data("startCorrupting", true)
-						if corruptCells.find(get_neighbor_cell(corruptCells[index], TileSet.CELL_NEIGHBOR_LEFT_SIDE)) == -1:
-							corruptCells.append(get_neighbor_cell(corruptCells[index], TileSet.CELL_NEIGHBOR_LEFT_SIDE))
-						
-					if get_cell_tile_data(0, get_neighbor_cell(corruptCells[index], TileSet.CELL_NEIGHBOR_BOTTOM_SIDE)) != null:
-						get_cell_tile_data(0, get_neighbor_cell(corruptCells[index], TileSet.CELL_NEIGHBOR_BOTTOM_SIDE)).set_custom_data("startCorrupting", true)
-						if corruptCells.find(get_neighbor_cell(corruptCells[index], TileSet.CELL_NEIGHBOR_BOTTOM_SIDE)) == -1:
-							corruptCells.append(get_neighbor_cell(corruptCells[index], TileSet.CELL_NEIGHBOR_BOTTOM_SIDE))
-						
-					if get_cell_tile_data(0, get_neighbor_cell(corruptCells[index], TileSet.CELL_NEIGHBOR_TOP_SIDE )) != null:
-						get_cell_tile_data(0, get_neighbor_cell(corruptCells[index], TileSet.CELL_NEIGHBOR_TOP_SIDE)).set_custom_data("startCorrupting", true)
-						if corruptCells.find(get_neighbor_cell(corruptCells[index], TileSet.CELL_NEIGHBOR_TOP_SIDE)) == -1:
-							corruptCells.append(get_neighbor_cell(corruptCells[index], TileSet.CELL_NEIGHBOR_TOP_SIDE))
-						
-					get_cell_tile_data(0, corruptCells[index]).set_custom_data("isCorrupt", true)
-			if get_cell_tile_data(0, corruptCells[index]).get_custom_data("isCorrupt") == true and get_cell_source_id(0, corruptCells[index]) == 0:
-				set_cell(0, corruptCells[index], 1, get_cell_atlas_coords(0, corruptCells[index]))
-		firstHalf = false
-	else:
-		for i in range(corruptCells.size()/2):
-			var index = i if firstHalf else i + corruptCells.size()/2
-			if get_cell_tile_data(0, corruptCells[index]).get_custom_data("startCorrupting") == true and get_cell_tile_data(0, corruptCells[index]).get_custom_data("SpreadToPerc") < 1:
-				get_cell_tile_data(0, corruptCells[index]).set_custom_data("SpreadToPerc", get_cell_tile_data(0, corruptCells[index]).get_custom_data("SpreadToPerc") + 0.001)
-			elif get_cell_tile_data(0, corruptCells[index]).get_custom_data("startCorrupting") == true and get_cell_tile_data(0, corruptCells[index]).get_custom_data("SpreadToPerc") >= 1:
-					if get_cell_tile_data(0, get_neighbor_cell(corruptCells[index], TileSet.CELL_NEIGHBOR_RIGHT_SIDE)) != null:
-						get_cell_tile_data(0, get_neighbor_cell(corruptCells[index], TileSet.CELL_NEIGHBOR_RIGHT_SIDE)).set_custom_data("startCorrupting", true)
-						if corruptCells.find(get_neighbor_cell(corruptCells[index], TileSet.CELL_NEIGHBOR_RIGHT_SIDE)) == -1:
-							corruptCells.append(get_neighbor_cell(corruptCells[index], TileSet.CELL_NEIGHBOR_RIGHT_SIDE))
-						
-					if get_cell_tile_data(0, get_neighbor_cell(corruptCells[index], TileSet.CELL_NEIGHBOR_LEFT_SIDE)) != null:
-						get_cell_tile_data(0, get_neighbor_cell(corruptCells[index], TileSet.CELL_NEIGHBOR_LEFT_SIDE)).set_custom_data("startCorrupting", true)
-						if corruptCells.find(get_neighbor_cell(corruptCells[index], TileSet.CELL_NEIGHBOR_LEFT_SIDE)) == -1:
-							corruptCells.append(get_neighbor_cell(corruptCells[index], TileSet.CELL_NEIGHBOR_LEFT_SIDE))
-						
-					if get_cell_tile_data(0, get_neighbor_cell(corruptCells[index], TileSet.CELL_NEIGHBOR_BOTTOM_SIDE)) != null:
-						get_cell_tile_data(0, get_neighbor_cell(corruptCells[index], TileSet.CELL_NEIGHBOR_BOTTOM_SIDE)).set_custom_data("startCorrupting", true)
-						if corruptCells.find(get_neighbor_cell(corruptCells[index], TileSet.CELL_NEIGHBOR_BOTTOM_SIDE)) == -1:
-							corruptCells.append(get_neighbor_cell(corruptCells[index], TileSet.CELL_NEIGHBOR_BOTTOM_SIDE))
-						
-					if get_cell_tile_data(0, get_neighbor_cell(corruptCells[index], TileSet.CELL_NEIGHBOR_TOP_SIDE )) != null:
-						get_cell_tile_data(0, get_neighbor_cell(corruptCells[index], TileSet.CELL_NEIGHBOR_TOP_SIDE)).set_custom_data("startCorrupting", true)
-						if corruptCells.find(get_neighbor_cell(corruptCells[index], TileSet.CELL_NEIGHBOR_TOP_SIDE)) == -1:
-							corruptCells.append(get_neighbor_cell(corruptCells[index], TileSet.CELL_NEIGHBOR_TOP_SIDE))
-						
-					get_cell_tile_data(0, corruptCells[index]).set_custom_data("isCorrupt", true)
-			if get_cell_tile_data(0, corruptCells[index]).get_custom_data("isCorrupt") == true and get_cell_source_id(0, corruptCells[index]) == 0:
-				set_cell(0, corruptCells[index], 1, get_cell_atlas_coords(0, corruptCells[index]))	
-		firstHalf = true		
+
+	var q = [ cellPos, cellPos, cellPos]
+	while q: 
+		var currCell  : Vector2 = q.pop_front()
+		var currCellU = Vector2(currCell.x, currCell.y-1)
+		var currCellL = Vector2(currCell.x-1, currCell.y)
+		var currCellR = Vector2(currCell.x+1, currCell.y)
+		var currCellD = Vector2(currCell.x, currCell.y+1)
 		
-	
-func _input(event):
-	if Input.is_action_just_pressed("shoot"):
-		if sourceStorage == 0:
-			set_cell(0, cellPos, sourceStorage + 1, atlasCoord)
-			get_cell_tile_data(0,cellPos).set_custom_data("SpreadToPerc", 100)
-			get_cell_tile_data(0,cellPos).set_custom_data("startCorrupting", true)
-			get_cell_tile_data(0,cellPos).set_custom_data("isCorrupt", true)
-			if corruptCells.find(cellPos) == -1:
-				corruptCells.append(cellPos)
+		if collide:
+			sourceIn = 0
+		else:
+			sourceIn = 1
+
+		if replacementTile != get_cell_atlas_coords(0, currCellL):
+			replacementTile = get_cell_atlas_coords(0, currCellL)		
+		
+		if get_cell_source_id(0, currCellL) == setToCell:
 			
-		#print("cell Position: ", cellPos, " sourceStorage: ", sourceStorage, " atlas: ", atlasCoord)
-				
+			
+			q.append(currCellL)
+			set_cell(0, currCellL, sourceIn, replacementTile)
+
+		if replacementTile != get_cell_atlas_coords(0, currCellR):
+			replacementTile = get_cell_atlas_coords(0, currCellR)			
+
+		if get_cell_source_id(0, currCellR) == setToCell:
+			
+			q.append(currCellR)
+			set_cell(0, currCellR, sourceIn, replacementTile)
+
+		if replacementTile !=  get_cell_atlas_coords(0, currCellD):
+			replacementTile = get_cell_atlas_coords(0, currCellD)			
+
+		if get_cell_source_id(0, currCellD) == setToCell:
+			
+			q.append(currCellD)
+			set_cell(0, currCellD, sourceIn, replacementTile)
+
+		if replacementTile != get_cell_atlas_coords(0, currCellU):
+			replacementTile = get_cell_atlas_coords(0, currCellU)			
+
+		if get_cell_source_id(0, currCellU) == setToCell:
+			
+			q.append(currCellU)
+			set_cell(0, currCellU, sourceIn, replacementTile)
+		if collide:
+			collide = false
+			break
+		
+		await(get_tree().create_timer(1)).timeout
+		
+
+func on_timeout():
+	if collide:
+		startFill(cellPos, 0, atlasCoord)
+	
+	#collide = false
+
+

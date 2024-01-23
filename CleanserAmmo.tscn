@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://dtn0u7ok4moam"]
+
+[ext_resource type="Script" path="res://CleanserAmmo.gd" id="1_7o5b1"]
+[ext_resource type="Texture2D" uid="uid://da1nbr3iffdka" path="res://bullet.png" id="2_dxkkk"]
+[ext_resource type="Script" path="res://CleanserCollide.gd" id="3_hfhnn"]
+[ext_resource type="PackedScene" uid="uid://uw01p6dbcnlc" path="res://cleanserParticle.tscn" id="4_0uman"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b72fc"]
+size = Vector2(24.6987, 17.4149)
+
+[node name="RigidBody2D" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 5
+max_contacts_reported = 5
+contact_monitor = true
+script = ExtResource("1_7o5b1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2.468, 2.468)
+texture = ExtResource("2_dxkkk")
+flip_h = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(2.52738, -1.16654)
+shape = SubResource("RectangleShape2D_b72fc")
+script = ExtResource("3_hfhnn")
+explosionV2 = ExtResource("4_0uman")
+
+[connection signal="body_entered" from="." to="CollisionShape2D2" method="_on_rigid_body_2d_body_entered"]
