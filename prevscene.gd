@@ -1,3 +1,3 @@
 extends Node
 
-var prev_scene
+var prev_scene : String

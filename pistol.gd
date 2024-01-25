@@ -6,8 +6,8 @@ var b
 @onready var sprite_2d = $Sprite2D
 @onready var barrel = $barrel
 var player: Node2D
-var currentAmmo = cleanserAmmo 
-@export var currentAmmoByString = "cleanserAmmo"
+var currentAmmo = rocket
+@export var currentAmmoByString = "rocket"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

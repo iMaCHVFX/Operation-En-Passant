@@ -1,3 +1,6 @@
+TileMap
+Button
+Label
 VideoStreamPlayer
 ColorRect
 CollisionShape2D
@@ -8,8 +11,4 @@ Camera2D
 Node
 Marker2D
 CharacterBody2D
-TileMap
 CanvasLayer
-Label
-Button
-GPUParticles2D

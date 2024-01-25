@@ -22,4 +22,10 @@ func _physics_process(delta):
 	
 	#else:
 	#	offset.x = 0
-		
+func _input(event):
+	if Input.is_action_just_pressed("zoomin"):
+		zoom.x += 0.02
+		zoom.y += 0.02
+	elif Input.is_action_just_pressed("zoomout"):
+		zoom.x -= 0.02
+		zoom.y -= 0.02

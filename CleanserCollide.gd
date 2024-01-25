@@ -1,8 +1,8 @@
 extends CollisionShape2D
 @export var explosionV2 : PackedScene 
-@onready var tileMap = get_node("/root/World/64")
-@export var knockback = 350 
 
+@export var knockback = 350 
+var tileMap
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	await(get_tree().create_timer(1)).timeout
@@ -18,8 +18,9 @@ func _process(delta):
 
 func _on_rigid_body_2d_body_entered(body):
 	
-	tileMap.collide = true
-	tileMap.cleaserPos = get_parent().position
+	body.collide = true
+	body.cleaserPos = get_parent().position
+	print(body)
 	
 	
 
